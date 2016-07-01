@@ -4,7 +4,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +36,55 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar=(Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        //final  ActionBar actionBar=getSupportActionBar();
+       // actionBar.setDisplayHomeAsUpEnabled(true);
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager=(ViewPager)findViewById(R.id.viewPager);
-        setupViewPager(viewPager);
+        if (viewPager != null)
+        {
+            setupViewPager(viewPager);
+        }
+
+
 
         tabLayout= (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+
+
+
+
+
+/*
+
+        tabLayout.addOnTabSelectedListener(
+                new TabLayout.OnTabSelectedListener(){
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+
+                        viewPager.setCurrentItem(tab.getPosition());
+
+                    }
+
+                    @Override
+                    public void onTabUnselected(TabLayout.Tab tab) {
+
+                    }
+
+                    @Override
+                    public void onTabReselected(TabLayout.Tab tab) {
+
+                    }
+                }
+        );
+
+*/
+
+
+
 
 
     }
@@ -51,9 +96,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new Messages(), "chat");
         adapter.addFragment(new Matches(), "peeps");
         viewPager.setAdapter(adapter);
+
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+   static class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
