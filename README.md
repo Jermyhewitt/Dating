@@ -7,4 +7,4 @@ A social application targeted at college students that aims to improve the inter
 - [ ] Post Videos
 
 #Screenshots
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](/screenshot5.PNG?raw=true "Logo Title Text 1")  ![alt text](/screenshot2.PNG?raw=true "Logo Title Text 1") ![alt text](/screenshot.PNG?raw=true "Logo Title Text 1")
